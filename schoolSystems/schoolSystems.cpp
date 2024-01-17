@@ -9,9 +9,127 @@ void heading() {//this removes the hassle
 	cout << "School Information System" << endl;
 	cout << "-------------------------" << endl << endl;
 }
+//Anthony S
+struct Account {
+	string email;
+	string password;
+};
+//Anthony S
+void bscRegister() {
+	Account newAccount;
+
+	heading();
+	cout << "\nRegistration Form\n" << endl;
+	cout << "Provide your Email address: "; getline(cin, newAccount.email);
+	cout << "Provide a Password: "; getline(cin, newAccount.password);
+
+	ofstream outputFile("accounts.txt", ios::app);
+	if (outputFile.is_open()) {
+		outputFile << newAccount.email << "," << newAccount.password << endl;
+		outputFile.close();
+		cout << "Account created successfully!" << endl;
+
+		//Needs menu to direct logged in user to
+	}
+	else {
+		cout << "Account creation failed." << endl;
+	}
+}
+//Anthony S
+void bscLogin() {
+	string email, password;
+
+	heading();
+	cout << "Email address: "; getline(cin, email);
+	cout << "Password: "; getline(cin, password);
+
+	ifstream file("admaccounts.txt");
+	string line;
+	while (getline(file, line)) {
+		size_t pos = line.find(",");
+		string savedEmail = line.substr(0, pos);
+		string savedPassword = line.substr(pos + 1);
+
+		if (savedEmail == email && savedPassword == password) {
+			cout << "Login successful!" << endl;
+			file.close();
+			system("PAUSE");
+
+			//Needs menu to direct logged in user to
+		}
+
+		cout << "Invalid email or password. Please try again." << endl;
+		file.close();
+	}
+}
+//Anthony S
+void admRegister() {
+	Account newAccount;
+	string enteredToken;
+	string admToken = "1234ABcd";
+
+	heading();
+	cout << "Please insert your Admin Token to proceed: " << endl;
+	cin >> enteredToken;
+
+	system("cls");
+
+	if (enteredToken == admToken) {
+		heading();
+		cout << "\nAdmin Token Verified!\n" << endl;
+		cout << "Admin Account Registration Form\n" << endl;
+		cout << "Provide your Email address: "; getline(cin, newAccount.email);
+		cout << "Provide a Password: "; getline(cin, newAccount.password);
+
+		ofstream outputFile("admaccounts.txt", ios::app);
+		if (outputFile.is_open()) {
+			outputFile << newAccount.email << "," << newAccount.password << endl;
+			outputFile.close();
+			cout << "Account created successfully!" << endl;
+
+			//Needs menu to direct logged in user to
+		}
+		else {
+			cout << "Account creation failed." << endl;
+		}
+	}
+	else {
+		cout << "Invalid admin token. Registration denied.";
+	}
+}
+//Anthony S
+void admLogin() {
+	string email, password;
+
+	heading();
+	cout << "\nEmail address: "; getline(cin, email);
+	cout << "Password: "; getline(cin, password);
+
+	ifstream file("admaccounts.txt");
+	string line;
+	while (getline(file, line)) {
+		size_t pos = line.find(",");
+		string savedEmail = line.substr(0, pos);
+		string savedPassword = line.substr(pos + 1);
+
+		if (savedEmail == email && savedPassword == password) {
+			cout << "Login successful!" << endl;
+			file.close();
+			system("PAUSE");
+
+			//Needs menu to direct logged in user to
+		}
+	}
+
+	cout << "Invalid email or password. Please try again." << endl;
+	file.close();
+	return;
+}
+
 
 
 int main () {
+	ofstream file("account.txt" "admaccount.text");
 	
 //Braedan M
 	int opt;
@@ -47,12 +165,12 @@ int main () {
 				switch (opt) {
 				case 1:
 					//Log In
-					cout << "test 1\n\n";
+					bscLogin();
 					break;
 
 				case 2:
 					//create an account
-					cout << "test 2\n\n";
+					bscRegister();
 					break;
 
 				case 3:
@@ -87,13 +205,12 @@ int main () {
 				switch (opt) {
 				case 1:
 					//Log In
-					cout << "test 1\n\n";
+					admLogin();
 					break;
 
 				case 2:
-					//create an account- special code first
-					//I assume it'll be an "if else" for this part -BM
-					cout << "test 2\n\n";
+					//Create an account - user to enter a token to access
+					admRegister();
 					break;
 
 				case 3:
