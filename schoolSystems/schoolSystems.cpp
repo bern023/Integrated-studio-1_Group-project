@@ -21,7 +21,7 @@ void bscRegister() {
 	heading();
 	cout << "\nRegistration Form\n" << endl;
 	cout << "Provide your Email address: "; getline(cin, newAccount.email);
-	cout << "Provide a Password: "; getline(cin, newAccount.password);
+	cout << "\nProvide a Password: "; getline(cin, newAccount.password);
 
 	ofstream outputFile("accounts.txt", ios::app);
 	if (outputFile.is_open()) {
@@ -41,7 +41,7 @@ void bscLogin() {
 
 	heading();
 	cout << "Email address: "; getline(cin, email);
-	cout << "Password: "; getline(cin, password);
+	cout << "\nPassword: "; getline(cin, password);
 
 	ifstream file("admaccounts.txt");
 	string line;
@@ -79,7 +79,7 @@ void admRegister() {
 		cout << "\nAdmin Token Verified!\n" << endl;
 		cout << "Admin Account Registration Form\n" << endl;
 		cout << "Provide your Email address: "; getline(cin, newAccount.email);
-		cout << "Provide a Password: "; getline(cin, newAccount.password);
+		cout << "\nProvide a Password: "; getline(cin, newAccount.password);
 
 		ofstream outputFile("admaccounts.txt", ios::app);
 		if (outputFile.is_open()) {
@@ -103,7 +103,7 @@ void admLogin() {
 
 	heading();
 	cout << "\nEmail address: "; getline(cin, email);
-	cout << "Password: "; getline(cin, password);
+	cout << "\nPassword: "; getline(cin, password);
 
 	ifstream file("admaccounts.txt");
 	string line;

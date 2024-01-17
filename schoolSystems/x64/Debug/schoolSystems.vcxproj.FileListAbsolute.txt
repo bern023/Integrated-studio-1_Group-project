@@ -1,2 +1,3 @@
 C:\Users\Admin\Documents\Yoobee Stuff\Integrated-studio-1_Group-project\schoolSystems\x64\Debug\schoolSystems.exe
 C:\Users\Admin\Documents\Yoobee-Stuff\Integrated-studio-1_Group-project\schoolSystems\x64\Debug\schoolSystems.exe
+C:\project\Integrated-studio-1_Group-project\schoolSystems\x64\Debug\schoolSystems.exe
