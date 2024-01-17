@@ -9,6 +9,23 @@ void heading() {//this removes the hassle
 	cout << "School Information System" << endl;
 	cout << "-------------------------" << endl << endl;
 }
+// Bernadette W
+struct accTypes{
+	struct teacher {
+		string teacherDetails;
+		string class[6] = {
+			"English", "Sciences", "Math", "History", "Arts", "Technology"
+		};
+	};
+	struct parent {
+		string parentDetails;
+		//student will just be stored as ID
+		vector<int> student;
+		// both class and report are arrays so we can match their values to show student grades with each class
+		string report[6];
+	};
+	
+};
 //Anthony S
 struct User {
 	string email;
