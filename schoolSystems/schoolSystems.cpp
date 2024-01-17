@@ -13,14 +13,14 @@ void heading() {//this removes the hassle
 struct accTypes{
 	struct teacher {
 		string teacherDetails;
-		string class[6] = {
+		string classes[6] = {//fixed it here -BM
 			"English", "Sciences", "Math", "History", "Arts", "Technology"
 		};
 	};
 	struct parent {
 		string parentDetails;
 		//student will just be stored as ID
-		vector<int> student;
+		vector<int> student;//Still needs fixing -BM
 		// both class and report are arrays so we can match their values to show student grades with each class
 		string report[6];
 	};
