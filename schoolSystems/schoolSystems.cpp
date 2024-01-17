@@ -10,66 +10,71 @@ void heading() {//this removes the hassle
 	cout << "-------------------------" << endl << endl;
 }
 //Anthony S
-struct Account {
+struct User {
 	string email;
 	string password;
 };
 //Anthony S
 void bscRegister() {
-	Account newAccount;
+	User newUser;
 
 	heading();
-	cout << "\nRegistration Form\n" << endl;
-	cout << "Provide your Email address: "; getline(cin, newAccount.email);
-	cout << "\nProvide a Password: "; getline(cin, newAccount.password);
+	cout << "\nRegistration Form" << endl;
+	cout << "--------------------" << endl;
+	cout << "Enter your Email address: ";	cin >> newUser.email;
+	cout << "Enter a Password: "; cin >> newUser.password;
 
-	ofstream outputFile("accounts.txt", ios::app);
-	if (outputFile.is_open()) {
-		outputFile << newAccount.email << "," << newAccount.password << endl;
-		outputFile.close();
+	ofstream file("users.txt", ios::app);
+	if (file.is_open()) {
+		file << newUser.email << " " << newUser.password << endl;
+		file.close();
 		cout << "Account created successfully!" << endl;
+
+		system("PAUSE");
 
 		//Needs menu to direct logged in user to
 	}
 	else {
-		cout << "Account creation failed." << endl;
+		cout << "Account creation failed. Please try again." << endl;
+		system("PAUSE");
 	}
 }
 //Anthony S
-void bscLogin() {
+bool bscLogin() {
 	string email, password;
 
 	heading();
-	cout << "Email address: "; getline(cin, email);
-	cout << "\nPassword: "; getline(cin, password);
+	cout << "\nEnter your email and password to login.\n" << endl;
+	cout << "Email address: "; cin >> email;
+	cout << "Password: "; cin >> password;
 
-	ifstream file("admaccounts.txt");
-	string line;
-	while (getline(file, line)) {
-		size_t pos = line.find(",");
-		string savedEmail = line.substr(0, pos);
-		string savedPassword = line.substr(pos + 1);
-
-		if (savedEmail == email && savedPassword == password) {
-			cout << "Login successful!" << endl;
-			file.close();
-			system("PAUSE");
-
-			//Needs menu to direct logged in user to
+	ifstream file("users.txt");
+	if (file.is_open()) {
+		string storedEmail, storedPassword;
+		while (file >> storedEmail >> storedPassword) {
+			if (storedEmail == email && storedPassword == password) {
+				file.close();
+				cout << "\nLogin successful!\n" << endl;
+				return true;
+			}
 		}
-
-		cout << "Invalid email or password. Please try again." << endl;
 		file.close();
+		cout << "\nInvalid username or password. Please try again.\n" << endl;
 	}
+	else {
+		cout << "\nLogin Error. Please try again.\n" << endl;
+		system("PAUSE");
+	}
+	return false;
 }
 //Anthony S
 void admRegister() {
-	Account newAccount;
+	User newUser;
 	string enteredToken;
 	string admToken = "1234ABcd";
 
 	heading();
-	cout << "Please insert your Admin Token to proceed: " << endl;
+	cout << "Please enter your Admin Token to proceed: " << endl;
 	cin >> enteredToken;
 
 	system("cls");
@@ -78,14 +83,16 @@ void admRegister() {
 		heading();
 		cout << "\nAdmin Token Verified!\n" << endl;
 		cout << "Admin Account Registration Form\n" << endl;
-		cout << "Provide your Email address: "; getline(cin, newAccount.email);
-		cout << "\nProvide a Password: "; getline(cin, newAccount.password);
+		cout << "Enter your Email address: ";	cin >> newUser.email;
+		cout << "Enter a Password: "; cin >> newUser.password;
 
-		ofstream outputFile("admaccounts.txt", ios::app);
-		if (outputFile.is_open()) {
-			outputFile << newAccount.email << "," << newAccount.password << endl;
-			outputFile.close();
+		ofstream file("users.txt", ios::app);
+		if (file.is_open()) {
+			file << newUser.email << " " << newUser.password << endl;
+			file.close();
 			cout << "Account created successfully!" << endl;
+
+			system("PAUSE");
 
 			//Needs menu to direct logged in user to
 		}
@@ -94,42 +101,41 @@ void admRegister() {
 		}
 	}
 	else {
-		cout << "Invalid admin token. Registration denied.";
+		cout << "Invalid admin token. Please try again.\n";
+		system("PAUSE");
 	}
 }
 //Anthony S
-void admLogin() {
+bool admLogin() {
 	string email, password;
 
 	heading();
-	cout << "\nEmail address: "; getline(cin, email);
-	cout << "\nPassword: "; getline(cin, password);
+	cout << "\nEnter your email and password to login.\n" << endl;
+	cout << "Email address: "; cin >> email;
+	cout << "Password: "; cin >> password;
 
-	ifstream file("admaccounts.txt");
-	string line;
-	while (getline(file, line)) {
-		size_t pos = line.find(",");
-		string savedEmail = line.substr(0, pos);
-		string savedPassword = line.substr(pos + 1);
-
-		if (savedEmail == email && savedPassword == password) {
-			cout << "Login successful!" << endl;
-			file.close();
-			system("PAUSE");
-
-			//Needs menu to direct logged in user to
+	ifstream file("users.txt");
+	if (file.is_open()) {
+		string storedEmail, storedPassword;
+		while (file >> storedEmail >> storedPassword) {
+			if (storedEmail == email && storedPassword == password) {
+				file.close();
+				cout << "\nLogin successful!\n" << endl;
+				return true;
+			}
 		}
+		file.close();
+		cout << "\nInvalid username or password. Please try again.\n" << endl;
 	}
-
-	cout << "Invalid email or password. Please try again." << endl;
-	file.close();
-	return;
+	else {
+		cout << "\nLogin Error. Please try again.\n" << endl;
+		system("PAUSE");
+	}
+	return false;	
 }
 
-
-
 int main () {
-	ofstream file("account.txt" "admaccount.text");
+	ofstream file("account.txt");
 	
 //Braedan M
 	int opt;
@@ -165,7 +171,9 @@ int main () {
 				switch (opt) {
 				case 1:
 					//Log In
-					bscLogin();
+					if (bscLogin()) {
+						// if user logs in, this is where it will direct the user to.
+					}
 					break;
 
 				case 2:
