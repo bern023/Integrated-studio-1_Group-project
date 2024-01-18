@@ -48,8 +48,7 @@ void bscRegister() {
 		cout << "Account created successfully!" << endl;
 
 		system("PAUSE");
-
-		//Needs menu to direct logged in user to
+		
 	}
 	else {
 		cout << "Account creation failed. Please try again." << endl;
@@ -110,8 +109,7 @@ void admRegister() {
 			cout << "Account created successfully!" << endl;
 
 			system("PAUSE");
-
-			//Needs menu to direct logged in user to
+		
 		}
 		else {
 			cout << "Account creation failed." << endl;
@@ -155,8 +153,8 @@ int main () {
 	ofstream file("account.txt");
 	
 //Braedan M
-	int opt;
-	do {
+	int opt;//declares the variable used for user choice
+	do {//do while loop for main menu
 		heading();//School title is in every main menu
 		cout << "Main Menu" << endl;
 		cout << "---------" << endl << endl;
@@ -164,15 +162,15 @@ int main () {
 		cout << "2. Admin Access" << endl;
 		cout << "3. Help/Contact Us" << endl;
 		cout << "4. Exit" << endl << endl;
-		cout << "Enter your choice" << endl;
+		cout << "Enter your choice:" << endl;
 		cin >> opt;
-		system("cls");
+		system("cls");//clears what's on screen
 
 		switch (opt) {
 		case 1: {
 
 			//Sign-in/Create (basic)
-			do {
+			do {//do while loop for menu
 				//Braedan M
 				heading();//School title is in every main menu
 				cout << "Student Account" << endl;
@@ -181,15 +179,56 @@ int main () {
 				cout << "2. Create an account" << endl;
 				cout << "3. Return to Main Menu" << endl;
 				cout << "4. Exit" << endl << endl;
-				cout << "Enter your choice" << endl;
+				cout << "Enter your choice:" << endl;
 				cin >> opt;
-				system("cls");
+				system("cls");//clears what's on screen
 
 				switch (opt) {
 				case 1:
 					//Log In
 					if (bscLogin()) {
 						// if user logs in, this is where it will direct the user to.
+						//Braedan M
+						do {//do while loop for menu
+							//Braedan M
+							heading();//School title is in every main menu
+							cout << "Student Details" << endl;
+							cout << "---------------" << endl << endl;
+							cout << "1. Reports" << endl;
+							cout << "2. Classes" << endl;
+							cout << "3. Teachers" << endl;
+							cout << "4. Return to Main Menu" << endl;
+							cout << "5. Exit" << endl << endl;
+							cout << "Enter your choice:" << endl;
+							cin >> opt;
+							system("cls");//clears what's on screen
+
+							switch (opt) {
+							case 1:
+								//Reports
+								break;
+
+							case 2:
+								//Classes
+								break;
+
+							case 3:
+								//Teachers? should students see their teachers? -BM
+								break;
+
+							case 4:
+								//Main Menu
+								main();
+									break;
+
+							case 5:
+								//Exit
+								return 0;
+
+							default:
+								cout << "Invalid Input" << endl;
+							}
+						} while (opt != 4);//loops while option is not 4
 					}
 					break;
 
@@ -209,12 +248,12 @@ int main () {
 				default:
 					cout << "Invalid Input" << endl;
 				}
-			} while (opt != 3);
+			} while (opt != 3);//loops while option is not 3
 		}
 			  break;
 		case 2:
 			//Admin Access
-			do {
+			do {//do while loop for menu
 				//Braedan M
 				heading();//School title is in every main menu
 				cout << "Admin Access" << endl;
@@ -223,14 +262,57 @@ int main () {
 				cout << "2. Create an account" << endl;
 				cout << "3. Return to Main Menu" << endl;
 				cout << "4. Exit" << endl << endl;
-				cout << "Enter your choice" << endl;
+				cout << "Enter your choice:" << endl;
 				cin >> opt;
-				system("cls");
+				system("cls");//clears what's on screen
 
 				switch (opt) {
 				case 1:
 					//Log In
-					admLogin();
+					if (admLogin()) {
+						// if user logs in, this is where it will direct the user to.
+						//Braedan M
+						do {
+							//Braedan M
+							heading();//School title is in every main menu
+							cout << "Admin Mode" << endl;
+							cout << "----------" << endl << endl;
+							cout << "1. Modify Reports" << endl;
+							cout << "2. Modify Classes" << endl;
+							cout << "3. Modify Teachers" << endl;
+							cout << "4. Return to Main Menu" << endl;
+							cout << "5. Exit" << endl << endl;
+							cout << "Enter your choice:" << endl;
+							cin >> opt;
+							system("cls");//clears what's on screen
+
+							switch (opt) {
+							case 1:
+								//Modify Reports
+								break;
+
+							case 2:
+								//Modify Classes
+								break;
+
+							case 3:
+								//Modify Teachers
+								break;
+
+							case 4:
+								//Main Menu
+								main();
+								break;
+
+							case 5:
+								//Exit
+								return 0;
+
+							default:
+								cout << "Invalid Input" << endl;
+							}
+						} while (opt != 4);//loops while option is not 4
+					}
 					break;
 
 				case 2:
@@ -249,7 +331,7 @@ int main () {
 				default:
 					cout << "Invalid Input";
 				}
-			} while (opt != 3);
+			} while (opt != 3);//loops while input is not 3
 
 			break;
 
@@ -274,7 +356,9 @@ int main () {
 			cout << "-------" << endl;
 			cout << "Phone: 09 376 7295" << endl;
 			cout << "Email: syshelp@support.com" << endl << endl;
-			cout << "=====================================================================" << endl << endl;				
+			cout << "=====================================================================" << endl << endl;
+			system("PAUSE");//pauses info in screen until user clicks any key
+			system("cls");//clears what's on screen
 			break;
 
 		case 4://exits
