@@ -13,14 +13,14 @@ void heading() {//this removes the hassle
 struct accTypes{
 	struct teacher {
 		string teacherDetails;
-		string classes[6] = {//fixed it here -BM
+		string classes[6] = {
 			"English", "Sciences", "Math", "History", "Arts", "Technology"
 		};
 	};
 	struct parent {
 		string parentDetails;
 		//student will just be stored as ID
-		vector<int> student;//Still needs fixing -BM
+		vector<int> student;
 		// both class and report are arrays so we can match their values to show student grades with each class
 		string report[6];
 	};
@@ -162,7 +162,7 @@ int main () {
 		cout << "---------" << endl << endl;
 		cout << "1. Sign-in/Create Account" << endl;
 		cout << "2. Admin Access" << endl;
-		cout << "3. Help/About Us" << endl;
+		cout << "3. Help/Contact Us" << endl;
 		cout << "4. Exit" << endl << endl;
 		cout << "Enter your choice" << endl;
 		cin >> opt;
@@ -207,7 +207,7 @@ int main () {
 					return 0;
 
 				default:
-					cout << "Invalid Input";
+					cout << "Invalid Input" << endl;
 				}
 			} while (opt != 3);
 		}
@@ -218,7 +218,7 @@ int main () {
 				//Braedan M
 				heading();//School title is in every main menu
 				cout << "Admin Access" << endl;
-				cout << "---------------" << endl << endl;
+				cout << "------------" << endl << endl;
 				cout << "1. Log-in" << endl;
 				cout << "2. Create an account" << endl;
 				cout << "3. Return to Main Menu" << endl;
@@ -254,14 +254,34 @@ int main () {
 			break;
 
 		case 3:
-			//Help and About Us
+			//Help and Contact Us info
+			//Braedan M
+			heading();//School title is in every main menu
+			cout << "Help and Contact Us" << endl;
+			cout << "-----------------" << endl << endl;
+			cout << "Help" << endl;
+			cout << "----" << endl;
+			cout << "This is a School Infortmation console app. ";
+			cout << "Here you will find information about the school through a personal account." << endl << endl;
+			cout << "These include:" << endl;
+			cout << "- Basic accounts which can access 'Classes' and 'Reports'" << endl;
+			cout << "- Admin accounts can view and modify: 'Teachers', 'Classes' and 'Reports'" << endl << endl;
+			cout << "1. Sign-in/Create Account, this is for basic users who want to log-in and view their student/s records." << endl;
+			cout << "2. Admin Access, this is for admins to view and modify school related data like teachers and records." << endl;
+			cout << "3. Help/Contact Us, this is where you are now and provides context to the system." << endl;
+			cout << "4. Exit, this will exit the system and end all processes." << endl << endl;
+			cout << "Contact Us" << endl;
+			cout << "-------" << endl;
+			cout << "Phone: 09 376 7295" << endl;
+			cout << "Email: syshelp@support.com" << endl << endl;
+			cout << "=====================================================================" << endl << endl;				
 			break;
 
 		case 4://exits
 			return 0;
 
 		default:
-			cout << "Invalid Input";
+			cout << "Invalid Input" << endl;
 		}
 	}while (opt != 4);
 		return 0;
