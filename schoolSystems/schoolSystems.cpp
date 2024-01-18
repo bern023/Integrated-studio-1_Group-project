@@ -275,8 +275,9 @@ int main () {
 							cout << "1. Modify Reports" << endl;
 							cout << "2. Modify Classes" << endl;
 							cout << "3. Modify Teachers" << endl;
-							cout << "4. Return to Main Menu" << endl;
-							cout << "5. Exit" << endl << endl;
+							cout << "4. See all accounts" << endl;
+							cout << "5. Return to Main Menu" << endl;
+							cout << "6. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
 							system("cls");//clears what's on screen
@@ -295,18 +296,22 @@ int main () {
 								break;
 
 							case 4:
+								//view all accounts
+								break;
+
+							case 5:
 								//Main Menu
 								main();
 								break;
 
-							case 5:
+							case 6:
 								//Exit
 								return 0;
 
 							default:
 								cout << "Invalid Input" << endl;
 							}
-						} while (opt != 4);//loops while option is not 4
+						} while (opt != 5);//loops while option is not 5
 					}
 					break;
 
