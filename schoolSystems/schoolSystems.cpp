@@ -32,7 +32,7 @@ struct User {
 	string password;
 };
 //Anthony S
-void bscRegister() {
+void bscRegister() {//need admin code here please -BM
 	User newUser;
 
 	heading();
@@ -158,7 +158,7 @@ int main () {
 		heading();//School title is in every main menu
 		cout << "Main Menu" << endl;
 		cout << "---------" << endl << endl;
-		cout << "1. Sign-in/Create Account" << endl;
+		cout << "1. Sign-in" << endl;
 		cout << "2. Admin Access" << endl;
 		cout << "3. Help/Contact Us" << endl;
 		cout << "4. Exit" << endl << endl;
@@ -169,16 +169,15 @@ int main () {
 		switch (opt) {
 		case 1: {
 
-			//Sign-in/Create (basic)
+			//Sign-in (basic)
 			do {//do while loop for menu
 				//Braedan M
 				heading();//School title is in every main menu
 				cout << "Student Account" << endl;
 				cout << "---------------" << endl << endl;
 				cout << "1. Log-in" << endl;
-				cout << "2. Create an account" << endl;
-				cout << "3. Return to Main Menu" << endl;
-				cout << "4. Exit" << endl << endl;
+				cout << "2. Return to Main Menu" << endl;
+				cout << "3. Exit" << endl << endl;
 				cout << "Enter your choice:" << endl;
 				cin >> opt;
 				system("cls");//clears what's on screen
@@ -230,25 +229,20 @@ int main () {
 							}
 						} while (opt != 4);//loops while option is not 4
 					}
-					break;
+					break;	
 
 				case 2:
-					//create an account
-					bscRegister();
-					break;
-
-				case 3:
 					//return to menu
 					break;
 
-				case 4:
+				case 3:
 					//exit
 					return 0;
 
 				default:
 					cout << "Invalid Input" << endl;
 				}
-			} while (opt != 3);//loops while option is not 3
+			} while (opt != 2);//loops while option is not 2
 		}
 			  break;
 		case 2:
@@ -259,9 +253,10 @@ int main () {
 				cout << "Admin Access" << endl;
 				cout << "------------" << endl << endl;
 				cout << "1. Log-in" << endl;
-				cout << "2. Create an account" << endl;
-				cout << "3. Return to Main Menu" << endl;
-				cout << "4. Exit" << endl << endl;
+				cout << "2. Create an  Admin account" << endl;
+				cout << "3. Create a Basic account" << endl;
+				cout << "4. Return to Main Menu" << endl;
+				cout << "5. Exit" << endl << endl;
 				cout << "Enter your choice:" << endl;
 				cin >> opt;
 				system("cls");//clears what's on screen
@@ -321,17 +316,22 @@ int main () {
 					break;
 
 				case 3:
-					//return to menu
+					//create basic account
+					bscRegister();
 					break;
 
 				case 4:
+					//return to menu
+					break;
+
+				case 5:
 					//exit
 					return 0;
 
 				default:
 					cout << "Invalid Input";
 				}
-			} while (opt != 3);//loops while input is not 3
+			} while (opt != 4);//loops while input is not 4
 
 			break;
 
@@ -348,7 +348,7 @@ int main () {
 			cout << "These include:" << endl;
 			cout << "- Basic accounts which can access 'Classes' and 'Reports'" << endl;
 			cout << "- Admin accounts can view and modify: 'Teachers', 'Classes' and 'Reports'" << endl << endl;
-			cout << "1. Sign-in/Create Account, this is for basic users who want to log-in and view their student/s records." << endl;
+			cout << "1. Sign-in, this is for basic users who want to log-in and view their student/s records." << endl;
 			cout << "2. Admin Access, this is for admins to view and modify school related data like teachers and records." << endl;
 			cout << "3. Help/Contact Us, this is where you are now and provides context to the system." << endl;
 			cout << "4. Exit, this will exit the system and end all processes." << endl << endl;
