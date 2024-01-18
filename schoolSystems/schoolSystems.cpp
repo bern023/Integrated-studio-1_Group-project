@@ -34,24 +34,37 @@ struct User {
 //Anthony S
 void bscRegister() {//need admin code here please -BM
 	User newUser;
+	string enteredToken;
+	string admToken = "ABcd1234";
 
 	heading();
-	cout << "\nRegistration Form" << endl;
-	cout << "--------------------" << endl;
-	cout << "Enter your Email address: ";	cin >> newUser.email;
-	cout << "Enter a Password: "; cin >> newUser.password;
+	cout << "Please enter your Admin Token to proceed: " << endl;
+	cin >> enteredToken;
 
-	ofstream file("users.txt", ios::app);
-	if (file.is_open()) {
-		file << newUser.email << " " << newUser.password << endl;
-		file.close();
-		cout << "Account created successfully!" << endl;
+	system("cls");
 
-		system("PAUSE");
-		
+	if (enteredToken == admToken) {
+		heading();
+		cout << "\nAdmin Token Verified!\n" << endl;
+		cout << "Admin Account Registration Form\n" << endl;
+		cout << "Enter your Email address: ";	cin >> newUser.email;
+		cout << "Enter a Password: "; cin >> newUser.password;
+
+		ofstream file("users.txt", ios::app);
+		if (file.is_open()) {
+			file << newUser.email << " " << newUser.password << endl;
+			file.close();
+			cout << "Account created successfully!" << endl;
+
+			system("PAUSE");
+
+		}
+		else {
+			cout << "Account creation failed." << endl;
+		}
 	}
 	else {
-		cout << "Account creation failed. Please try again." << endl;
+		cout << "Invalid admin token. Please try again.\n";
 		system("PAUSE");
 	}
 }
