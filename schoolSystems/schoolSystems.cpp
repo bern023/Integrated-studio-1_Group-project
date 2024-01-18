@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 //Braedan M
@@ -9,6 +9,23 @@ void heading() {//this removes the hassle
 	cout << "School Information System" << endl;
 	cout << "-------------------------" << endl << endl;
 }
+// Bernadette W
+struct accTypes{
+	struct teacher {
+		string teacherDetails;
+		string classes[6] = {//fixed it here -BM
+			"English", "Sciences", "Math", "History", "Arts", "Technology"
+		};
+	};
+	struct parent {
+		string parentDetails;
+		//student will just be stored as ID
+		vector<int> student;//Still needs fixing -BM
+		// both class and report are arrays so we can match their values to show student grades with each class
+		string report[6];
+	};
+	
+};
 //Anthony S
 struct User {
 	string email;
