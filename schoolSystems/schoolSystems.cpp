@@ -161,6 +161,43 @@ bool admLogin() {
 	}
 	return false;	
 }
+//Anthony S
+void listUsers() {
+	ifstream file("users.txt");
+	string user;
+
+	if (file.is_open()) {
+		while (getline(file, user)) {
+			cout << user << endl;
+		}
+		file.close();
+	}
+	else {
+		cout << "Unable to open file." << endl;
+	}
+}
+//Anthony S
+void deleteUser(const string& email) {
+	ifstream file("users.txt");
+	ofstream temp("temp.txt");
+	string user;
+
+	if (file.is_open() && temp.is_open()) {
+		while (getline(file, user)) {
+			if (user != email) {
+				temp << user << endl;
+			}
+		}
+		file.close();
+		temp.close();
+		remove("users.txt");
+		rename("temp.txt", "users.txt");
+		cout << "User deleted successfully." << endl;
+	}
+	else {
+		cout << "Unable to delete user." << endl;
+	}
+}
 
 int main () {
 	ofstream file("account.txt");
@@ -288,9 +325,10 @@ int main () {
 							cout << "1. Modify Reports" << endl;
 							cout << "2. Modify Classes" << endl;
 							cout << "3. Modify Teachers" << endl;
-							cout << "4. See all accounts" << endl;
-							cout << "5. Return to Main Menu" << endl;
-							cout << "6. Exit" << endl << endl;
+							cout << "4. List Users" << endl;
+							cout << "5. Delete User" << endl;
+							cout << "6. Return to Main Menu" << endl;
+							cout << "7. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
 							system("cls");//clears what's on screen
@@ -309,15 +347,23 @@ int main () {
 								break;
 
 							case 4:
-								//view all accounts
+								//List Users - Anthony S
+								listUsers();
 								break;
 
 							case 5:
+								//Delete User - Anthony S
+								cout << "Enter an email to delete: ";
+								cin >> email;
+								deleteUser(email);
+								break;
+                  
+							case 6:
 								//Main Menu
 								main();
 								break;
-
-							case 6:
+                  
+							case 7:
 								//Exit
 								return 0;
 
