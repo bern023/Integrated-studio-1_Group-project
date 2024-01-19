@@ -125,7 +125,7 @@ void admRegister() {
 
 		ofstream file("users.txt", ios::app);
 		if (file.is_open()) {
-			file << "admin," << newUser.email << " " << newUser.password << endl;
+			file << newUser.email << " " << newUser.password << endl;
 			file.close();
 			cout << "Administrator account created successfully!" << endl;
 
@@ -316,6 +316,48 @@ void deleteClasses() {
 	file.close();
 }
 
+//Braedan M
+void cParents() {//Creates a new parent data
+	string pSurname, pName;//variables used for Parent's name
+
+	heading();
+	cout << "Please enter a parent surname then first name" << endl;
+	cout << "Surname: "; cin >> pSurname;
+	cout << "First Name: "; cin >> pName;
+
+	ofstream file("parents.txt", ios::app);
+	if (file.is_open()) {//adds to the teachers.txt file
+		file << pSurname << ", " << pName << endl;
+		file.close();
+		cout << "Parent added successfully!" << endl;
+
+		system("PAUSE");
+
+	}
+	else {
+		cout << "Parent could not be added." << endl;//if error
+	}
+
+}
+
+//Braedan M
+void lParents() {//lists recorded parents
+	ifstream file("parents.txt");
+	string parent;
+
+	if (file.is_open()) {
+		cout << "List of Parents:" << endl;
+		while (getline(file, parent)) {
+			cout << parent << endl;
+		}
+		file.close();
+		cout << endl;
+	}
+	else {//if error
+		cout << "Unable to open file." << endl;
+	}
+}
+
 int main () {
 	ofstream file("account.txt");
 	string email;
@@ -364,8 +406,9 @@ int main () {
 							cout << "1. Reports" << endl;
 							cout << "2. Classes" << endl;
 							cout << "3. Teachers" << endl;
-							cout << "4. Return to Main Menu" << endl;
-							cout << "5. Exit" << endl << endl;
+							cout << "4. Parents" << endl;
+							cout << "5. Return to Main Menu" << endl;
+							cout << "6. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
 							system("cls");//clears what's on screen
@@ -377,25 +420,38 @@ int main () {
 
 							case 2:
 								//Classes
+								listClasses();
+								system("PAUSE");
+								system("cls");//clears what's on screen
 								break;
 
 							case 3:
 								//Teachers
+								lTeachers();
+								system("PAUSE");
+								system("cls");//clears what's on screen
 								break;
 
 							case 4:
+								//Parents
+								lParents();
+								system("PAUSE");
+								system("cls");//clears what's on screen
+								break;
+
+							case 5:
 								//Main Menu
 								main();
 									break;
 
-							case 5:
+							case 6:
 								//Exit
 								return 0;
 
 							default:
 								cout << "Invalid Input" << endl;
 							}
-						} while (opt != 4);//loops while option is not 4
+						} while (opt != 5);//loops while option is not 5
 					}
 					break;	
 
@@ -429,8 +485,6 @@ int main () {
 				cin >> opt;
 				system("cls");//clears what's on screen
 
-				switch(opt)
-
 				switch (opt) {
 				case 1:
 					//Log In
@@ -445,10 +499,11 @@ int main () {
 							cout << "1. Modify Reports" << endl;
 							cout << "2. Modify Classes" << endl;
 							cout << "3. Modify Teachers" << endl;
-							cout << "4. List Users" << endl;
-							cout << "5. Delete User" << endl;
-							cout << "6. Return to Main Menu" << endl;
-							cout << "7. Exit" << endl << endl;
+							cout << "4. Modify Parents" << endl;
+							cout << "5. List Users" << endl;
+							cout << "6. Delete User" << endl;
+							cout << "7. Return to Main Menu" << endl;
+							cout << "8. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
 							system("cls");//clears what's on screen
@@ -460,7 +515,7 @@ int main () {
 
 							case 2:
 								//Modify Classes
-								
+								do {
 									//Braedan M
 									heading();//School title is in every main menu
 									cout << "Modify Classes" << endl;
@@ -492,11 +547,9 @@ int main () {
 									case 4:
 										//return to previous menu
 										break;
-
-
 									}
-								
-								
+								} while (opt != 4);
+								break;
 
 							case 3:
 								//Modify Teachers
@@ -535,32 +588,68 @@ int main () {
 									}
 								} while (opt != 4);
 								break;
-
 							case 4:
+								//modify parents
+								do {
+									//Braedan M
+									heading();//School title is in every main menu
+									cout << "Modify Parents" << endl;
+									cout << "--------------" << endl << endl;
+									cout << "1. Create Parents" << endl;
+									cout << "2. List Parents" << endl;
+									cout << "3. Delete Parents" << endl;
+									cout << "4. Return to previous menu" << endl;
+									cout << "Enter your choice:" << endl;
+									cin >> opt;
+									system("cls");//clears what's on screen
+
+									switch (opt) {
+									case 1:
+										//create parents
+										cParents();
+										break;
+
+									case 2:
+										//list parents
+										lParents();
+										break;
+
+									case 3:
+										//delete parents
+										break;
+
+									case 4:
+										//return to previous menu
+										break;
+									}
+								} while (opt != 4);
+								break;
+
+							case 5:
 								//List Users - Anthony S
 								listUsers();
 								break;
 
-							case 5:
+							case 6:
 								//Delete User - Anthony S
 								cout << "Enter an email to delete: ";
 								cin >> email;
 								deleteUser(email);
 								break;
                   
-							case 6:
+							case 7:
 								//Main Menu
 								main();
 								break;
                   
-							case 7:
+							case 8:
 								//Exit
 								return 0;
 
 							default:
 								cout << "Invalid Input" << endl;
 							}
-						} while (opt != 6);//loops while option is not 6
+						} while (opt != 7);//loops while option is not 7
 					}
 					break;
 
@@ -576,6 +665,7 @@ int main () {
 
 				case 4:
 					//return to menu
+					main();
 					break;
 
 				case 5:
