@@ -357,12 +357,12 @@ int main () {
 								cin >> email;
 								deleteUser(email);
 								break;
-
+                  
 							case 6:
 								//Main Menu
 								main();
 								break;
-
+                  
 							case 7:
 								//Exit
 								return 0;
@@ -370,7 +370,7 @@ int main () {
 							default:
 								cout << "Invalid Input" << endl;
 							}
-						} while (opt != 4);//loops while option is not 4
+						} while (opt != 5);//loops while option is not 5
 					}
 					break;
 
