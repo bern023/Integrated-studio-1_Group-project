@@ -26,11 +26,13 @@ struct accTypes{
 	};
 	
 };
+
 //Anthony S
 struct User {
 	string email;
 	string password;
 };
+
 //Anthony S
 void bscRegister() {//need admin code here please -BM
 	User newUser;
@@ -71,29 +73,35 @@ void bscRegister() {//need admin code here please -BM
 //Anthony S
 bool bscLogin() {
 	string email, password;
+	int attempts = 0;
 
-	heading();
-	cout << "\nEnter your email and password to login.\n" << endl;
-	cout << "Email address: "; cin >> email;
-	cout << "Password: "; cin >> password;
+	while (attempts < 3) {
+		heading();
+		cout << "\nEnter your email and password to login.\n" << endl;
+		cout << "Email address: "; cin >> email;
+		cout << "Password: "; cin >> password;
 
-	ifstream file("users.txt");
-	if (file.is_open()) {
-		string storedEmail, storedPassword;
-		while (file >> storedEmail >> storedPassword) {
-			if (storedEmail == email && storedPassword == password) {
-				file.close();
-				cout << "\nLogin successful!\n" << endl;
-				return true;
+		ifstream file("users.txt");
+		if (file.is_open()) {
+			string storedEmail, storedPassword;
+			while (file >> storedEmail >> storedPassword) {
+				if (storedEmail == email && storedPassword == password) {
+					file.close();
+					cout << "\nLogin successful!\n" << endl;
+					return true;
+				}
 			}
+			file.close();
+			cout << "\nInvalid username or password. Please try again.\n" << endl;
 		}
-		file.close();
-		cout << "\nInvalid username or password. Please try again.\n" << endl;
+		else {
+			cout << "\nLogin Error. Please try again.\n" << endl;
+			system("PAUSE");
+		}
+		attempts++;
+
 	}
-	else {
-		cout << "\nLogin Error. Please try again.\n" << endl;
-		system("PAUSE");
-	}
+	cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
 	return false;
 }
 //Anthony S
@@ -117,9 +125,9 @@ void admRegister() {
 
 		ofstream file("users.txt", ios::app);
 		if (file.is_open()) {
-			file << newUser.email << " " << newUser.password << endl;
+			file << "admin," << newUser.email << " " << newUser.password << endl;
 			file.close();
-			cout << "Account created successfully!" << endl;
+			cout << "Administrator account created successfully!" << endl;
 
 			system("PAUSE");
 		
@@ -136,31 +144,38 @@ void admRegister() {
 //Anthony S
 bool admLogin() {
 	string email, password;
+	int attempts = 0;
 
-	heading();
-	cout << "\nEnter your email and password to login.\n" << endl;
-	cout << "Email address: "; cin >> email;
-	cout << "Password: "; cin >> password;
+	while (attempts < 3) {
+		heading();
+		cout << "\nEnter your email and password to login.\n" << endl;
+		cout << "Email address: "; cin >> email;
+		cout << "Password: "; cin >> password;
 
-	ifstream file("users.txt");
-	if (file.is_open()) {
-		string storedEmail, storedPassword;
-		while (file >> storedEmail >> storedPassword) {
-			if (storedEmail == email && storedPassword == password) {
-				file.close();
-				cout << "\nLogin successful!\n" << endl;
-				return true;
+		ifstream file("users.txt");
+		if (file.is_open()) {
+			string storedEmail, storedPassword;
+			while (file >> storedEmail >> storedPassword) {
+				if (storedEmail == email && storedPassword == password) {
+					file.close();
+					cout << "\nLogin successful!\n" << endl;
+					return true;
+				}
 			}
+			file.close();
+			cout << "\nInvalid username or password. Please try again.\n" << endl;
 		}
-		file.close();
-		cout << "\nInvalid username or password. Please try again.\n" << endl;
+		else {
+			cout << "\nLogin Error. Please try again.\n" << endl;
+			system("PAUSE");
+		}
+		attempts++;
+
 	}
-	else {
-		cout << "\nLogin Error. Please try again.\n" << endl;
-		system("PAUSE");
-	}
-	return false;	
+	cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
+	return false;
 }
+
 //Anthony S
 void listUsers() {
 	ifstream file("users.txt");
@@ -201,6 +216,7 @@ void deleteUser(const string& email) {
 
 int main () {
 	ofstream file("account.txt");
+	string email;
 	
 //Braedan M
 	int opt;//declares the variable used for user choice
