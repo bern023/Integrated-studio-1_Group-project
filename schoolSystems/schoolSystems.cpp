@@ -326,7 +326,7 @@ void cParents() {//Creates a new parent data
 	cout << "First Name: "; cin >> pName;
 
 	ofstream file("parents.txt", ios::app);
-	if (file.is_open()) {//adds to the teachers.txt file
+	if (file.is_open()) {//adds to the parents.txt file
 		file << pSurname << ", " << pName << endl;
 		file.close();
 		cout << "Parent added successfully!" << endl;
@@ -358,8 +358,61 @@ void lParents() {//lists recorded parents
 	}
 }
 
-int main () {
-	ofstream file("account.txt");
+//Braedan M
+void cReports() {//Creates a new report data
+	string sSurname, sName;//variables used for Student's name
+	string subj1, subj2, subj3, subj4, subj5, subj6;
+
+	heading();
+	cout << "Please enter a student surname then first name" << endl;
+	cout << "Surname: "; cin >> sSurname;
+	cout << "First Name: "; cin >> sName;
+	cout << endl << "Enter Student grades:" << endl;
+	cout << "Math: "; cin >> subj1;
+	cout << "English: "; cin >> subj2;
+	cout << "P.E: "; cin >> subj3;
+	cout << "Technology: "; cin >> subj4;
+	cout << "Art: "; cin >> subj5;
+	cout << "Science: "; cin >> subj6;
+
+	ofstream file("reports.txt", ios::app);
+	if (file.is_open()) {//adds to the reports.txt file
+		file << sSurname << ", " << sName << endl;
+		file << "Math: " << subj1 << ", English: " << subj2 << endl;
+		file << "P.E: " << subj3 << ", Technology: " << subj4 << endl;
+		file << "Art: " << subj5 << ", Science: " << subj6 << endl;
+		file << "--------------------" << endl;
+		file.close();
+		cout << "Report added successfully!" << endl;
+
+		system("PAUSE");
+
+	}
+	else {
+		cout << "Report could not be added." << endl;//if error
+	}
+
+}
+
+//Braedan M
+void lReports() {//lists recorded reports
+	ifstream file("reports.txt");
+	string report;
+
+	if (file.is_open()) {
+		cout << "List of Reports:" << endl;
+		while (getline(file, report)) {
+			cout << report << endl;
+		}
+		file.close();
+		cout << endl;
+	}
+	else {//if error
+		cout << "Unable to open file." << endl;
+	}
+}
+
+int main () {	
 	string email;
 	
 //Braedan M
@@ -416,6 +469,9 @@ int main () {
 							switch (opt) {
 							case 1:
 								//Reports
+								lReports();
+								system("PAUSE");
+								system("cls");//clears what's on screen
 								break;
 
 							case 2:
@@ -511,6 +567,41 @@ int main () {
 							switch (opt) {
 							case 1:
 								//Modify Reports
+								do {
+									//Braedan M
+									heading();//School title is in every main menu
+									cout << "Modify Reports" << endl;
+									cout << "--------------" << endl << endl;
+									cout << "1. Create Reports" << endl;
+									cout << "2. List Reports" << endl;
+									cout << "3. Delete Reports" << endl;
+									cout << "4. Return to previous menu" << endl;
+									cout << "Enter your choice:" << endl;
+									cin >> opt;
+									system("cls");//clears what's on screen
+
+									switch (opt) {
+									case 1:
+										//create Reports
+										cReports();
+										break;
+
+									case 2:
+										//list Reports
+										lReports();
+										system("PAUSE");
+										system("cls");//clears what's on screen
+										break;
+
+									case 3:
+										//delete Reports
+										break;
+
+									case 4:
+										//return to previous menu
+										break;
+									}
+								} while (opt != 4);
 								break;
 
 							case 2:
@@ -537,6 +628,8 @@ int main () {
 									case 2:
 										//list classes
 										listClasses();
+										system("PAUSE");
+										system("cls");//clears what's on screen
 										break;
 
 									case 3:
@@ -575,6 +668,8 @@ int main () {
 									case 2:
 										//list teachers
 										lTeachers();
+										system("PAUSE");
+										system("cls");//clears what's on screen
 										break;
 
 									case 3:
@@ -612,6 +707,8 @@ int main () {
 									case 2:
 										//list parents
 										lParents();
+										system("PAUSE");
+										system("cls");//clears what's on screen
 										break;
 
 									case 3:
