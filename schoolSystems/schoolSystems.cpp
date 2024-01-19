@@ -255,9 +255,66 @@ void lTeachers() {//lists recorded teachers
 		cout << "Unable to open file." << endl;
 	}
 }
+void createClasses() {
+	fstream file;
+	string userInput;
+	file.open("Subjects.txt", ios::app);
+	if (file.is_open()) {
+		cout << "Please enter subject name:";
+		cin >> userInput;
+		file << userInput;
+		file.close();
 
+	}
+}
+void listClasses() {
+	fstream file;
+	string subject;
+	file.open("Subjects.txt", ios::in);
+	if (file.is_open()) {
+		while (getline(file, subject)) {
+			cout << subject << endl;
+		}
+		file.close();
+	}
+}
+void deleteClasses() {
+	fstream file;
+	
+	string subject;
+	vector<string> lines;
+	int lineNumber;
+	fstream tempFile;
+	cout << "Please enter the number of the line you want to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("Subjects.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, subject)) {
+		lines.push_back(subject);
 
+	}
+	file.close();
+	if (lineNumber < lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("Subjects.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
 
+		}
+	}
+	file.close();
+}
 
 int main () {
 	ofstream file("account.txt");
@@ -372,6 +429,8 @@ int main () {
 				cin >> opt;
 				system("cls");//clears what's on screen
 
+				switch(opt)
+
 				switch (opt) {
 				case 1:
 					//Log In
@@ -401,7 +460,43 @@ int main () {
 
 							case 2:
 								//Modify Classes
-								break;
+								
+									//Braedan M
+									heading();//School title is in every main menu
+									cout << "Modify Classes" << endl;
+									cout << "---------------" << endl << endl;
+									cout << "1. Create Classes" << endl;
+									cout << "2. List Classes" << endl;
+									cout << "3. Delete Classes" << endl;
+									cout << "4. Return to previous menu" << endl;
+									cout << "Enter your choice:" << endl;
+									cin >> opt;
+									system("cls");//clears what's on screen
+
+									switch (opt) {
+									case 1:
+										//create classes
+										createClasses();
+										break;
+
+									case 2:
+										//list classes
+										listClasses();
+										break;
+
+									case 3:
+										//delete classes
+										deleteClasses();
+										break;
+
+									case 4:
+										//return to previous menu
+										break;
+
+
+									}
+								
+								
 
 							case 3:
 								//Modify Teachers
