@@ -265,7 +265,6 @@ int main () {
 	
 //Braedan M
 	int opt;//declares the variable used for user choice
-	string email;//declare variable for user email
 	do {//do while loop for main menu
 		heading();//School title is in every main menu
 		cout << "Main Menu" << endl;
