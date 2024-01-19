@@ -34,7 +34,7 @@ struct User {
 };
 
 //Anthony S
-void bscRegister() {//need admin code here please -BM
+void bscRegister() {
 	User newUser;
 	string enteredToken;
 	string admToken = "ABcd1234";
@@ -214,12 +214,58 @@ void deleteUser(const string& email) {
 	}
 }
 
+//Braedan M
+void cTeachers() {//Creates a new teacher data
+	string tSurname, tName;//variables used for Teacher's name
+
+	heading();
+	cout << "Please enter a teacher surname then first name" << endl;
+	cout << "Surname: "; cin >> tSurname;
+	cout << "First Name: "; cin >> tName;
+
+	ofstream file("teachers.txt", ios::app);
+	if (file.is_open()) {//adds to the teachers.txt file
+		file << tSurname << ", " << tName << endl;
+		file.close();
+		cout << "Teacher added successfully!" << endl;
+
+		system("PAUSE");
+
+	}
+	else {
+		cout << "Teacher could not be added." << endl;//if error
+	}
+
+}
+
+//Braedan M
+void lTeachers() {//lists recorded teachers
+	ifstream file("teachers.txt");
+	string teacher;
+
+	if (file.is_open()) {
+		cout << "List of Teachers:" << endl;
+		while (getline(file, teacher)) {
+			cout << teacher << endl;
+		}
+		file.close();
+		cout << endl;
+	}
+	else {//if error
+		cout << "Unable to open file." << endl;
+	}
+}
+
+
+
+
 int main () {
 	ofstream file("account.txt");
 	string email;
 	
 //Braedan M
 	int opt;//declares the variable used for user choice
+	string email;//declare variable for user email
 	do {//do while loop for main menu
 		heading();//School title is in every main menu
 		cout << "Main Menu" << endl;
@@ -278,7 +324,7 @@ int main () {
 								break;
 
 							case 3:
-								//Teachers? should students see their teachers? -BM
+								//Teachers
 								break;
 
 							case 4:
@@ -319,7 +365,7 @@ int main () {
 				cout << "Admin Access" << endl;
 				cout << "------------" << endl << endl;
 				cout << "1. Log-in" << endl;
-				cout << "2. Create an  Admin account" << endl;
+				cout << "2. Create an Admin account" << endl;
 				cout << "3. Create a Basic account" << endl;
 				cout << "4. Return to Main Menu" << endl;
 				cout << "5. Exit" << endl << endl;
@@ -360,6 +406,40 @@ int main () {
 
 							case 3:
 								//Modify Teachers
+								do {
+									//Braedan M
+									heading();//School title is in every main menu
+									cout << "Modify Teachers" << endl;
+									cout << "---------------" << endl << endl;
+									cout << "1. Create Teachers" << endl;
+									cout << "2. List Teachers" << endl;
+									cout << "3. Delete Teachers" << endl;
+									cout << "4. Return to previous menu" << endl;
+									cout << "Enter your choice:" << endl;
+									cin >> opt;
+									system("cls");//clears what's on screen
+
+									switch (opt) {
+									case 1:
+										//create teachers
+										cTeachers();
+										break;
+
+									case 2:
+										//list teachers
+										lTeachers();
+										break;
+
+									case 3:
+										//delete teachers
+
+										break;
+
+									case 4:
+										//return to previous menu
+										break;
+									}
+								} while (opt != 4);
 								break;
 
 							case 4:
@@ -386,7 +466,7 @@ int main () {
 							default:
 								cout << "Invalid Input" << endl;
 							}
-						} while (opt != 5);//loops while option is not 5
+						} while (opt != 6);//loops while option is not 6
 					}
 					break;
 
@@ -428,7 +508,7 @@ int main () {
 			cout << "These include:" << endl;
 			cout << "- Basic accounts which can access 'Classes' and 'Reports'" << endl;
 			cout << "- Admin accounts can view and modify: 'Teachers', 'Classes' and 'Reports'" << endl << endl;
-			cout << "1. Sign-in, this is for basic users who want to log-in and view their student/s records." << endl;
+			cout << "1. Sign-in, this is for basic users who want to log-in and view the school records." << endl;
 			cout << "2. Admin Access, this is for admins to view and modify school related data like teachers and records." << endl;
 			cout << "3. Help/Contact Us, this is where you are now and provides context to the system." << endl;
 			cout << "4. Exit, this will exit the system and end all processes." << endl << endl;
