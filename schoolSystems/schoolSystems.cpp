@@ -470,7 +470,47 @@ void lReports() {//lists recorded reports
 		cout << "Unable to open file." << endl;
 	}
 }
+//Bernadette W
+void dReports() {
+	fstream file;
+	string report;
+	int start, end;
+	vector<string> lines;
 
+
+	cout << "Please enter the start of line number you would like to delete:";
+	cin >> start;
+	start--;
+	cout << "Please enter the end of line number you would like to delete:";
+	cin >> end;
+	end--;
+	// reading the file and storing file contents in vector of strings
+	file.open("reports.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, report)) {
+		lines.push_back(report);
+
+	}
+	file.close();
+	if (end > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("reports.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i < start || i > end) {
+			file << lines[i] << endl;
+
+		}
+	}
+	file.close();
+}
 int main () {	
 	string email;
 	
@@ -654,6 +694,7 @@ int main () {
 
 									case 3:
 										//delete Reports
+										dReports();
 										break;
 
 									case 4:
