@@ -36,16 +36,15 @@ struct User {
 //Anthony S
 void bscRegister() {
 	User newUser;
-	string enteredToken;
-	string admToken = "ABcd1234";
+	string token;
 
 	heading();
 	cout << "Please enter your Admin Token to proceed: " << endl;
-	cin >> enteredToken;
+	cin >> token;
 
 	system("cls");
 
-	if (enteredToken == admToken) {
+	if (token == "1234ABcd") {
 		heading();
 		cout << "\nAdmin Token Verified!\n" << endl;
 		cout << "Admin Account Registration Form\n" << endl;
@@ -72,10 +71,10 @@ void bscRegister() {
 }
 //Anthony S
 bool bscLogin() {
-	string email, password;
 	int attempts = 0;
 
 	while (attempts < 3) {
+		string email, password;
 		heading();
 		cout << "\nEnter your email and password to login.\n" << endl;
 		cout << "Email address: "; cin >> email;
@@ -108,15 +107,15 @@ bool bscLogin() {
 void admRegister() {
 	User newUser;
 	string enteredToken;
-	string admToken = "1234ABcd";
+	string token;
 
 	heading();
 	cout << "Please enter your Admin Token to proceed: " << endl;
-	cin >> enteredToken;
+	cin >> token;
 
 	system("cls");
 
-	if (enteredToken == admToken) {
+	if (token == "1234ABcd") {
 		heading();
 		cout << "\nAdmin Token Verified!\n" << endl;
 		cout << "Admin Account Registration Form\n" << endl;
@@ -143,19 +142,18 @@ void admRegister() {
 }
 //Anthony S
 bool admLogin() {
-	string email, password;
 	int attempts = 0;
-	string enteredToken;
-	string admToken = "1234ABcd";
+	string token;
 
 	heading();
 	cout << "Please enter your Admin Token to proceed: " << endl;
-	cin >> enteredToken;
+	cin >> token;
 
 	system("cls");
 
-	if (enteredToken == admToken) {
+	if (token == "1234ABcd") {
 		while (attempts < 3) {
+			string email, password;
 			heading();
 			cout << "\nEnter your email and password to login.\n" << endl;
 			cout << "Email address: "; cin >> email;
@@ -179,11 +177,15 @@ bool admLogin() {
 				system("PAUSE");
 			}
 			attempts++;
-
 		}
 		cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
-		return false;
 	}
+	else {
+		cout << "Invalid admin token. Please try again.\n";
+		system("PAUSE");
+		return 0;
+	}
+
 }
 
 //Anthony S
