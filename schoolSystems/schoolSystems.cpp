@@ -9,23 +9,6 @@ void heading() {//this removes the hassle
 	cout << "School Information System" << endl;
 	cout << "-------------------------" << endl << endl;
 }
-// Bernadette W
-struct accTypes{
-	struct teacher {
-		string teacherDetails;
-		string classes[6] = {
-			"English", "Sciences", "Math", "History", "Arts", "Technology"
-		};
-	};
-	struct parent {
-		string parentDetails;
-		//student will just be stored as ID
-		vector<int> student;
-		// both class and report are arrays so we can match their values to show student grades with each class
-		string report[6];
-	};
-	
-};
 
 //Anthony S
 struct User {
@@ -429,6 +412,42 @@ void lParents() {//lists recorded parents
 		cout << "Unable to open file." << endl;
 	}
 }
+//Braedan M 
+void dParents() {
+	fstream file;
+	string subject;
+	vector<string> lines;
+	int lineNumber;
+	cout << "Please enter the number of the line you want to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("parents.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, subject)) {
+		lines.push_back(subject);
+
+	}
+	file.close();
+	if (lineNumber > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("parents.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
+
+		}
+	}
+	file.close();
+}
 
 //Braedan M
 void cReports() {//Creates a new report data
@@ -483,8 +502,48 @@ void lReports() {//lists recorded reports
 		cout << "Unable to open file." << endl;
 	}
 }
+//Bernadette W
+void dReports() {
+	fstream file;
+	string report;
+	int start, end;
+	vector<string> lines;
 
-int main() {	
+
+	cout << "Please enter the start of line number you would like to delete:";
+	cin >> start;
+	start--;
+	cout << "Please enter the end of line number you would like to delete:";
+	cin >> end;
+	end--;
+	// reading the file and storing file contents in vector of strings
+	file.open("reports.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, report)) {
+		lines.push_back(report);
+
+	}
+	file.close();
+	if (end > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("reports.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i < start || i > end) {
+			file << lines[i] << endl;
+		}
+	}
+	file.close();
+}
+
+int main () {	
 	string email;
 	
 //Braedan M
@@ -667,6 +726,7 @@ int main() {
 
 									case 3:
 										//delete Reports
+										dReports();
 										break;
 
 									case 4:
@@ -746,7 +806,7 @@ int main() {
 
 									case 3:
 										//delete teachers
-
+										dTeachers();
 										break;
 
 									case 4:
@@ -785,6 +845,7 @@ int main() {
 
 									case 3:
 										//delete parents
+										dParents();
 										break;
 
 									case 4:
@@ -860,8 +921,8 @@ int main() {
 			cout << "This is a School Infortmation console app. ";
 			cout << "Here you will find information about the school through a personal account." << endl << endl;
 			cout << "These include:" << endl;
-			cout << "- Basic accounts which can access 'Classes' and 'Reports'" << endl;
-			cout << "- Admin accounts can view and modify: 'Teachers', 'Classes' and 'Reports'" << endl << endl;
+			cout << "- Basic accounts which can access 'Classes','Reports', 'Teachers' and 'Parents'" << endl;
+			cout << "- Admin accounts can view and modify: 'Teachers', 'Classes' and 'Reports' and 'Parents'" << endl << endl;
 			cout << "1. Sign-in, this is for basic users who want to log-in and view the school records." << endl;
 			cout << "2. Admin Access, this is for admins to view and modify school related data like teachers and records." << endl;
 			cout << "3. Help/Contact Us, this is where you are now and provides context to the system." << endl;
