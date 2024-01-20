@@ -1,1 +1,3 @@
-Admin Register: 1234ABcd
+Basic Account register: 1234ABcd
+Admin Account register: 1234ABcd
+Admin log in: 1234ABcd
