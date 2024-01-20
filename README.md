@@ -2,7 +2,7 @@
 Bernadette, Braedan, Ant (Koda unfortunately had to leave to take care of other prior assessment matters)
 --------------
 School Information System console app
-An app that displays school related datat with the ability to add and delete accounts and data.
+An app that displays school related data with the ability to add and delete accounts and data.
 --------------
 Admin codes to use when creating an account/logging in:
 
