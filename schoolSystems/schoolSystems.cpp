@@ -145,35 +145,45 @@ void admRegister() {
 bool admLogin() {
 	string email, password;
 	int attempts = 0;
+	string enteredToken;
+	string admToken = "1234ABcd";
 
-	while (attempts < 3) {
-		heading();
-		cout << "\nEnter your email and password to login.\n" << endl;
-		cout << "Email address: "; cin >> email;
-		cout << "Password: "; cin >> password;
+	heading();
+	cout << "Please enter your Admin Token to proceed: " << endl;
+	cin >> enteredToken;
 
-		ifstream file("users.txt");
-		if (file.is_open()) {
-			string storedEmail, storedPassword;
-			while (file >> storedEmail >> storedPassword) {
-				if (storedEmail == email && storedPassword == password) {
-					file.close();
-					cout << "\nLogin successful!\n" << endl;
-					return true;
+	system("cls");
+
+	if (enteredToken == admToken) {
+		while (attempts < 3) {
+			heading();
+			cout << "\nEnter your email and password to login.\n" << endl;
+			cout << "Email address: "; cin >> email;
+			cout << "Password: "; cin >> password;
+
+			ifstream file("users.txt");
+			if (file.is_open()) {
+				string storedEmail, storedPassword;
+				while (file >> storedEmail >> storedPassword) {
+					if (storedEmail == email && storedPassword == password) {
+						file.close();
+						cout << "\nLogin successful!\n" << endl;
+						return true;
+					}
 				}
+				file.close();
+				cout << "\nInvalid username or password. Please try again.\n" << endl;
 			}
-			file.close();
-			cout << "\nInvalid username or password. Please try again.\n" << endl;
-		}
-		else {
-			cout << "\nLogin Error. Please try again.\n" << endl;
-			system("PAUSE");
-		}
-		attempts++;
+			else {
+				cout << "\nLogin Error. Please try again.\n" << endl;
+				system("PAUSE");
+			}
+			attempts++;
 
+		}
+		cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
+		return false;
 	}
-	cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
-	return false;
 }
 
 //Anthony S
@@ -788,6 +798,7 @@ int main () {
 
 							case 6:
 								//Delete User - Anthony S
+								listUsers();
 								cout << "Enter an email to delete: ";
 								cin >> email;
 								deleteUser(email);
