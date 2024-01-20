@@ -179,6 +179,7 @@ bool admLogin() {
 			attempts++;
 		}
 		cout << "\nToo many login attempts. Redirecting to Main Menu.\n" << endl;
+		return 0;
 	}
 	else {
 		cout << "Invalid admin token. Please try again.\n";
@@ -483,7 +484,7 @@ void lReports() {//lists recorded reports
 	}
 }
 
-int main () {	
+int main() {	
 	string email;
 	
 //Braedan M
