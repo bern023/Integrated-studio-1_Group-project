@@ -196,6 +196,13 @@ void deleteUser(const string& email) {
 
 	cout << "Please enter the line number you would like to delete:";
 	cin >> lineNumber;
+	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> lineNumber;//asks for input again
+	}
 	lineNumber--;
 	// reading the file and storing file contents in vector of strings
 	file.open("users.txt", ios::in);
@@ -278,6 +285,13 @@ void dTeachers() {
 
 	cout << "Please enter the line number you would like to delete:";
 	cin >> lineNumber;
+	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> lineNumber;//asks for input again
+	}
 	lineNumber--;
 	// reading the file and storing file contents in vector of strings
 	file.open("teachers.txt", ios::in);
@@ -341,6 +355,13 @@ void dClasses() {
 	int lineNumber;
 	cout << "Please enter the number of the line you want to delete:";
 	cin >> lineNumber;
+	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> lineNumber;//asks for input again
+	}
 	lineNumber--;
 	// reading the file and storing file contents in vector of strings
 	file.open("Subjects.txt", ios::in);
@@ -419,6 +440,13 @@ void dParents() {
 	int lineNumber;
 	cout << "Please enter the number of the line you want to delete:";
 	cin >> lineNumber;
+	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> lineNumber;//asks for input again
+	}
 	lineNumber--;
 	// reading the file and storing file contents in vector of strings
 	file.open("parents.txt", ios::in);
@@ -511,9 +539,22 @@ void dReports() {
 
 	cout << "Please enter the start of line number you would like to delete:";
 	cin >> start;
+	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> start;//asks for input again
+	}
 	start--;
 	cout << "Please enter the end of line number you would like to delete:";
-	cin >> end;
+	cin >> end;	//Braedan M
+	while (cin.fail()) {//if input fails
+		cin.clear();//clears the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cin >> end;//asks for input again
+	}
 	end--;
 	// reading the file and storing file contents in vector of strings
 	file.open("reports.txt", ios::in);
@@ -557,6 +598,13 @@ int main () {
 		cout << "4. Exit" << endl << endl;
 		cout << "Enter your choice:" << endl;
 		cin >> opt;
+		//Braedan M
+		while (cin.fail()) {//if input fails
+			cin.clear();//clears the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cin >> opt;//asks for input again
+		}
 		system("cls");//clears what's on screen
 
 		switch (opt) {
@@ -573,6 +621,13 @@ int main () {
 				cout << "3. Exit" << endl << endl;
 				cout << "Enter your choice:" << endl;
 				cin >> opt;
+				//Braedan M
+				while (cin.fail()) {//if input fails
+					cin.clear();//clears the error flag
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cin >> opt;//asks for input again
+				}
 				system("cls");//clears what's on screen
 
 				switch (opt) {
@@ -594,6 +649,13 @@ int main () {
 							cout << "6. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
+							//Braedan M
+							while (cin.fail()) {//if input fails
+								cin.clear();//clears the error flag
+								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cin >> opt;//asks for input again
+							}
 							system("cls");//clears what's on screen
 
 							switch (opt) {
@@ -669,6 +731,13 @@ int main () {
 				cout << "5. Exit" << endl << endl;
 				cout << "Enter your choice:" << endl;
 				cin >> opt;
+				//Braedan M
+				while (cin.fail()) {//if input fails
+					cin.clear();//clears the error flag
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cin >> opt;//asks for input again
+				}
 				system("cls");//clears what's on screen
 
 				switch (opt) {
@@ -692,6 +761,13 @@ int main () {
 							cout << "8. Exit" << endl << endl;
 							cout << "Enter your choice:" << endl;
 							cin >> opt;
+							//Braedan M
+							while (cin.fail()) {//if input fails
+								cin.clear();//clears the error flag
+								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cin >> opt;//asks for input again
+							}
 							system("cls");//clears what's on screen
 
 							switch (opt) {
@@ -708,6 +784,13 @@ int main () {
 									cout << "4. Return to previous menu" << endl;
 									cout << "Enter your choice:" << endl;
 									cin >> opt;
+									//Braedan M
+									while (cin.fail()) {//if input fails
+										cin.clear();//clears the error flag
+										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cin >> opt;//asks for input again
+									}
 									system("cls");//clears what's on screen
 
 									switch (opt) {
@@ -748,6 +831,13 @@ int main () {
 									cout << "4. Return to previous menu" << endl;
 									cout << "Enter your choice:" << endl;
 									cin >> opt;
+									//Braedan M
+									while (cin.fail()) {//if input fails
+										cin.clear();//clears the error flag
+										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cin >> opt;//asks for input again
+									}
 									system("cls");//clears what's on screen
 
 									switch (opt) {
@@ -788,6 +878,13 @@ int main () {
 									cout << "4. Return to previous menu" << endl;
 									cout << "Enter your choice:" << endl;
 									cin >> opt;
+									//Braedan M
+									while (cin.fail()) {//if input fails
+										cin.clear();//clears the error flag
+										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cin >> opt;//asks for input again
+									}
 									system("cls");//clears what's on screen
 
 									switch (opt) {
@@ -827,6 +924,13 @@ int main () {
 									cout << "4. Return to previous menu" << endl;
 									cout << "Enter your choice:" << endl;
 									cin >> opt;
+									//Braedan M
+									while (cin.fail()) {//if input fails
+										cin.clear();//clears the error flag
+										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cin >> opt;//asks for input again
+									}
 									system("cls");//clears what's on screen
 
 									switch (opt) {
