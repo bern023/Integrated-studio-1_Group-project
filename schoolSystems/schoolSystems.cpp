@@ -193,25 +193,43 @@ void listUsers() {
 }
 //Anthony S
 void deleteUser(const string& email) {
-	ifstream file("users.txt");
-	ofstream temp("temp.txt");
+	fstream file("users.txt");
 	string user;
+	int lineNumber;
+	vector<string> lines;
 
-	if (file.is_open() && temp.is_open()) {
-		while (getline(file, user)) {
-			if (user != email) {
-				temp << user << endl;
-			}
+
+	cout << "Please enter the line number you would like to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("users.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, user)) {
+		lines.push_back(user);
+
+	}
+	file.close();
+	if (lineNumber > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("users.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
+
 		}
-		file.close();
-		temp.close();
-		remove("users.txt");
-		rename("temp.txt", "users.txt");
-		cout << "User deleted successfully." << endl;
 	}
-	else {
-		cout << "Unable to delete user." << endl;
-	}
+	file.close();
+}
+
 }
 
 //Braedan M
@@ -255,7 +273,48 @@ void lTeachers() {//lists recorded teachers
 		cout << "Unable to open file." << endl;
 	}
 }
-void createClasses() {
+//Bernadette W
+void dTeachers() {
+	fstream file;
+	string teacher;
+	int lineNumber;
+	vector<string> lines;
+	
+	
+		cout << "Please enter the line number you would like to delete:";
+		cin >> lineNumber;
+		lineNumber--;
+		// reading the file and storing file contents in vector of strings
+		file.open("teachers.txt", ios::in);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		while (getline(file, teacher)) {
+			lines.push_back(teacher);
+
+		}
+		file.close();
+		if (lineNumber > lines.size()) {
+			cout << "That number is not within the range of the text file" << endl;
+			cout << "File has" << lines.size() << "lines" << endl;
+		}
+		//overriding the contents of the file
+		file.open("teachers.txt", ios::out);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		for (int i = 0; i < lines.size(); i++) {
+			if (i != lineNumber) {
+				file << lines[i] << endl;
+
+			}
+		}
+		file.close();
+	}
+	
+}
+//Bernadette W
+void cClasses() {
 	fstream file;
 	string userInput;
 	file.open("Subjects.txt", ios::app);
@@ -267,7 +326,8 @@ void createClasses() {
 
 	}
 }
-void listClasses() {
+//Bernadette W
+void lClasses() {
 	fstream file;
 	string subject;
 	file.open("Subjects.txt", ios::in);
@@ -278,13 +338,12 @@ void listClasses() {
 		file.close();
 	}
 }
-void deleteClasses() {
+// Bernadett W
+void dClasses() {
 	fstream file;
-	
 	string subject;
 	vector<string> lines;
 	int lineNumber;
-	fstream tempFile;
 	cout << "Please enter the number of the line you want to delete:";
 	cin >> lineNumber;
 	lineNumber--;
@@ -298,7 +357,7 @@ void deleteClasses() {
 
 	}
 	file.close();
-	if (lineNumber < lines.size()) {
+	if (lineNumber > lines.size()) {
 		cout << "That number is not within the range of the text file" << endl;
 		cout << "File has" << lines.size() << "lines" << endl;
 	}
@@ -476,7 +535,7 @@ int main () {
 
 							case 2:
 								//Classes
-								listClasses();
+								lClasses();
 								system("PAUSE");
 								system("cls");//clears what's on screen
 								break;
@@ -622,19 +681,19 @@ int main () {
 									switch (opt) {
 									case 1:
 										//create classes
-										createClasses();
+										cClasses();
 										break;
 
 									case 2:
 										//list classes
-										listClasses();
+										lClasses();
 										system("PAUSE");
 										system("cls");//clears what's on screen
 										break;
 
 									case 3:
 										//delete classes
-										deleteClasses();
+										dClasses();
 										break;
 
 									case 4:
