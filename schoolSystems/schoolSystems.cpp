@@ -197,45 +197,36 @@ void deleteUser(const string& email) {
 	string user;
 	int lineNumber;
 	vector<string> lines;
-	char resume = 'y';
-	while (resume == 'y') {
-		cout << "Please enter the line number you would like to delete:";
-		cin >> lineNumber;
-		lineNumber--;
-		// reading the file and storing file contents in vector of strings
-		file.open("users.txt", ios::in);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		while (getline(file, user)) {
-			lines.push_back(user);
 
-		}
-		file.close();
-		if (lineNumber > lines.size()) {
-			cout << "That number is not within the range of the text file" << endl;
-			cout << "File has" << lines.size() << "lines" << endl;
-		}
-		//overriding the contents of the file
-		file.open("users.txt", ios::out);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		for (int i = 0; i < lines.size(); i++) {
-			if (i != lineNumber) {
-				file << lines[i] << endl;
+	cout << "Please enter the line number you would like to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("users.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, user)) {
+		lines.push_back(user);
 
-			}
-		}
-		file.close();
-		cout << "Would you like to delete another user? y or n:";
-		resume = tolower(resume);
-		if (resume == 'n') {
-			exit(0);
+	}
+	file.close();
+	if (lineNumber > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("users.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
+
 		}
 	}
-
-	
+	file.close();
 }
 
 
@@ -287,46 +278,36 @@ void dTeachers() {
 	string teacher;
 	int lineNumber;
 	vector<string> lines;
-	char resume = 'y';
-	while (resume == 'y') {
-		cout << "Please enter the line number you would like to delete:";
-		cin >> lineNumber;
-		lineNumber--;
-		// reading the file and storing file contents in vector of strings
-		file.open("teachers.txt", ios::in);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		while (getline(file, teacher)) {
-			lines.push_back(teacher);
+	
+	cout << "Please enter the line number you would like to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("teachers.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, teacher)) {
+		lines.push_back(teacher);
 
-		}
-		file.close();
-		if (lineNumber > lines.size()) {
-			cout << "That number is not within the range of the text file" << endl;
-			cout << "File has" << lines.size() << "lines" << endl;
-		}
-		//overriding the contents of the file
-		file.open("teachers.txt", ios::out);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		for (int i = 0; i < lines.size(); i++) {
-			if (i != lineNumber) {
-				file << lines[i] << endl;
+	}
+	file.close();
+	if (lineNumber > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("teachers.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
 
-			}
-		}
-		file.close();
-		cout << "Would you like to delete another teacher? y or n:";
-		resume = tolower(resume);
-		if (resume == 'n') {
-			exit(0);
 		}
 	}
-
-	
-
+	file.close();
 	
 }
 //Bernadette W
@@ -360,44 +341,37 @@ void dClasses() {
 	string subject;
 	vector<string> lines;
 	int lineNumber;
-	char resume = 'y';
-	while (resume == 'y') {
-		cout << "Please enter the number of the line you want to delete:";
-		cin >> lineNumber;
-		lineNumber--;
-		// reading the file and storing file contents in vector of strings
-		file.open("Subjects.txt", ios::in);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		while (getline(file, subject)) {
-			lines.push_back(subject);
+	
+	
+	cout << "Please enter the number of the line you want to delete:";
+	cin >> lineNumber;
+	lineNumber--;
+	// reading the file and storing file contents in vector of strings
+	file.open("Subjects.txt", ios::in);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	while (getline(file, subject)) {
+		lines.push_back(subject);
 
-		}
-		file.close();
-		if (lineNumber > lines.size()) {
-			cout << "That number is not within the range of the text file" << endl;
-			cout << "File has" << lines.size() << "lines" << endl;
-		}
-		//overriding the contents of the file
-		file.open("Subjects.txt", ios::out);
-		if (file.fail()) {
-			cout << "Error opening file." << endl;
-		}
-		for (int i = 0; i < lines.size(); i++) {
-			if (i != lineNumber) {
-				file << lines[i] << endl;
+	}
+	file.close();
+	if (lineNumber > lines.size()) {
+		cout << "That number is not within the range of the text file" << endl;
+		cout << "File has" << lines.size() << "lines" << endl;
+	}
+	//overriding the contents of the file
+	file.open("Subjects.txt", ios::out);
+	if (file.fail()) {
+		cout << "Error opening file." << endl;
+	}
+	for (int i = 0; i < lines.size(); i++) {
+		if (i != lineNumber) {
+			file << lines[i] << endl;
 
-			}
-		}
-		file.close();
-		cout << "Would you like to delete another class? y or n:";
-		resume = tolower(resume);
-		if (resume == 'n') {
-			exit(0);
 		}
 	}
-	
+	file.close();
 }
 
 //Braedan M
