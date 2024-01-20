@@ -193,44 +193,50 @@ void deleteUser(const string& email) {
 	string user;
 	int lineNumber;
 	vector<string> lines;
-
-
-	cout << "Please enter the line number you would like to delete:";
-	cin >> lineNumber;
-	//Braedan M
-	while (cin.fail()) {//if input fails
-		cin.clear();//clears the error flag
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
-		cin >> lineNumber;//asks for input again
-	}
-	lineNumber--;
-	// reading the file and storing file contents in vector of strings
-	file.open("users.txt", ios::in);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	while (getline(file, user)) {
-		lines.push_back(user);
-
-	}
-	file.close();
-	if (lineNumber > lines.size()) {
-		cout << "That number is not within the range of the text file" << endl;
-		cout << "File has" << lines.size() << "lines" << endl;
-	}
-	//overriding the contents of the file
-	file.open("users.txt", ios::out);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	for (int i = 0; i < lines.size(); i++) {
-		if (i != lineNumber) {
-			file << lines[i] << endl;
+	char resume = 'y';
+	heading();
+	while (resume == 'y') {
+		cout << "Please enter the line number you would like to delete:";
+		cin >> lineNumber;
+		//Braedan M
+		while (cin.fail()) {//if input fails
+			cin.clear();//clears the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cin >> lineNumber;//asks for input again
+		}
+		lineNumber--;
+		// reading the file and storing file contents in vector of strings
+		file.open("users.txt", ios::in);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		while (getline(file, user)) {
+			lines.push_back(user);
 
 		}
+		file.close();
+		if (lineNumber > lines.size()) {
+			cout << "That number is not within the range of the text file" << endl;
+			cout << "File has" << lines.size() << "lines" << endl;
+		}
+		//overriding the contents of the file
+		file.open("users.txt", ios::out);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		for (int i = 0; i < lines.size(); i++) {
+			if (i != lineNumber) {
+				file << lines[i] << endl;
+
+			}
+		}
+		file.close();
+		cout << "Would you like to delete another user (y / n):";
+		cin >> resume;
 	}
-	file.close();
+
+	
 }
 
 
@@ -282,44 +288,50 @@ void dTeachers() {
 	string teacher;
 	int lineNumber;
 	vector<string> lines;
-
-
-	cout << "Please enter the line number you would like to delete:";
-	cin >> lineNumber;
-	//Braedan M
-	while (cin.fail()) {//if input fails
-		cin.clear();//clears the error flag
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
-		cin >> lineNumber;//asks for input again
-	}
-	lineNumber--;
-	// reading the file and storing file contents in vector of strings
-	file.open("teachers.txt", ios::in);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	while (getline(file, teacher)) {
-		lines.push_back(teacher);
-
-	}
-	file.close();
-	if (lineNumber > lines.size()) {
-		cout << "That number is not within the range of the text file" << endl;
-		cout << "File has" << lines.size() << "lines" << endl;
-	}
-	//overriding the contents of the file
-	file.open("teachers.txt", ios::out);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	for (int i = 0; i < lines.size(); i++) {
-		if (i != lineNumber) {
-			file << lines[i] << endl;
+	char resume = 'y';
+	heading();
+	while (resume == 'y') {
+		cout << "Please enter the line number you would like to delete:";
+		cin >> lineNumber;
+		//Braedan M
+		while (cin.fail()) {//if input fails
+			cin.clear();//clears the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cin >> lineNumber;//asks for input again
+		}
+		lineNumber--;
+		// reading the file and storing file contents in vector of strings
+		file.open("teachers.txt", ios::in);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		while (getline(file, teacher)) {
+			lines.push_back(teacher);
 
 		}
+		file.close();
+		if (lineNumber > lines.size()) {
+			cout << "That number is not within the range of the text file" << endl;
+			cout << "File has" << lines.size() << "lines" << endl;
+		}
+		//overriding the contents of the file
+		file.open("teachers.txt", ios::out);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		for (int i = 0; i < lines.size(); i++) {
+			if (i != lineNumber) {
+				file << lines[i] << endl;
+
+			}
+		}
+		file.close();
+		cout << "Would you like to delete another teacher (y / n):";
+		cin >> resume;
 	}
-	file.close();
+
+	
 
 	
 }
@@ -354,42 +366,49 @@ void dClasses() {
 	string subject;
 	vector<string> lines;
 	int lineNumber;
-	cout << "Please enter the number of the line you want to delete:";
-	cin >> lineNumber;
-	//Braedan M
-	while (cin.fail()) {//if input fails
-		cin.clear();//clears the error flag
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
-		cin >> lineNumber;//asks for input again
-	}
-	lineNumber--;
-	// reading the file and storing file contents in vector of strings
-	file.open("Subjects.txt", ios::in);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	while (getline(file, subject)) {
-		lines.push_back(subject);
-
-	}
-	file.close();
-	if (lineNumber > lines.size()) {
-		cout << "That number is not within the range of the text file" << endl;
-		cout << "File has" << lines.size() << "lines" << endl;
-	}
-	//overriding the contents of the file
-	file.open("Subjects.txt", ios::out);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	for (int i = 0; i < lines.size(); i++) {
-		if (i != lineNumber) {
-			file << lines[i] << endl;
+	char resume = 'y';
+	heading();
+	while (resume == 'y') {
+		cout << "Please enter the number of the line you want to delete:";
+		cin >> lineNumber;
+		//Braedan M
+		while (cin.fail()) {//if input fails
+			cin.clear();//clears the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cin >> lineNumber;//asks for input again
+		}
+		lineNumber--;
+		// reading the file and storing file contents in vector of strings
+		file.open("Subjects.txt", ios::in);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		while (getline(file, subject)) {
+			lines.push_back(subject);
 
 		}
+		file.close();
+		if (lineNumber > lines.size()) {
+			cout << "That number is not within the range of the text file" << endl;
+			cout << "File has" << lines.size() << "lines" << endl;
+		}
+		//overriding the contents of the file
+		file.open("Subjects.txt", ios::out);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		for (int i = 0; i < lines.size(); i++) {
+			if (i != lineNumber) {
+				file << lines[i] << endl;
+
+			}
+		}
+		file.close();
+		cout << "Would you like to delete another class (y / n):";
+		cin >> resume;
 	}
-	file.close();
+	
 }
 
 //Braedan M
@@ -439,42 +458,49 @@ void dParents() {
 	string subject;
 	vector<string> lines;
 	int lineNumber;
-	cout << "Please enter the number of the line you want to delete:";
-	cin >> lineNumber;
-	//Braedan M
-	while (cin.fail()) {//if input fails
-		cin.clear();//clears the error flag
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
-		cin >> lineNumber;//asks for input again
-	}
-	lineNumber--;
-	// reading the file and storing file contents in vector of strings
-	file.open("parents.txt", ios::in);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	while (getline(file, subject)) {
-		lines.push_back(subject);
-
-	}
-	file.close();
-	if (lineNumber > lines.size()) {
-		cout << "That number is not within the range of the text file" << endl;
-		cout << "File has" << lines.size() << "lines" << endl;
-	}
-	//overriding the contents of the file
-	file.open("parents.txt", ios::out);
-	if (file.fail()) {
-		cout << "Error opening file." << endl;
-	}
-	for (int i = 0; i < lines.size(); i++) {
-		if (i != lineNumber) {
-			file << lines[i] << endl;
+	char resume = 'y';
+	heading();
+	while (resume == 'y') {
+		cout << "Please enter the number of the line you want to delete:";
+		cin >> lineNumber;
+		//Braedan M
+		while (cin.fail()) {//if input fails
+			cin.clear();//clears the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
+			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cin >> lineNumber;//asks for input again
+		}
+		lineNumber--;
+		// reading the file and storing file contents in vector of strings
+		file.open("parents.txt", ios::in);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		while (getline(file, subject)) {
+			lines.push_back(subject);
 
 		}
+		file.close();
+		if (lineNumber > lines.size()) {
+			cout << "That number is not within the range of the text file" << endl;
+			cout << "File has" << lines.size() << "lines" << endl;
+		}
+		//overriding the contents of the file
+		file.open("parents.txt", ios::out);
+		if (file.fail()) {
+			cout << "Error opening file." << endl;
+		}
+		for (int i = 0; i < lines.size(); i++) {
+			if (i != lineNumber) {
+				file << lines[i] << endl;
+
+			}
+		}
+		file.close();
+		cout << "Would you like to delete another parent (y / n):";
+		cin >> resume;
 	}
-	file.close();
+	
 }
 
 //Braedan M
