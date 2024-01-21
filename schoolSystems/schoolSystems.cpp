@@ -1048,7 +1048,7 @@ int main () {
 			cout << "-----------------" << endl << endl;
 			cout << "Help" << endl;
 			cout << "----" << endl;
-			cout << "This is a School Infortmation console app. ";
+			cout << "This is a School Information console app. ";
 			cout << "Here you will find information about the school through a personal account." << endl << endl;
 			cout << "These include:" << endl;
 			cout << "- Basic accounts which can access 'Classes','Reports', 'Teachers' and 'Parents'" << endl;
