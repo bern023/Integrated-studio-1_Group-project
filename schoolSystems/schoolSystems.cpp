@@ -202,7 +202,7 @@ void deleteUser(const string& email) {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> lineNumber;//asks for input again
 		}
 		lineNumber--;
@@ -297,7 +297,7 @@ void dTeachers() {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> lineNumber;//asks for input again
 		}
 		lineNumber--;
@@ -375,7 +375,7 @@ void dClasses() {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> lineNumber;//asks for input again
 		}
 		lineNumber--;
@@ -467,7 +467,7 @@ void dParents() {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> lineNumber;//asks for input again
 		}
 		lineNumber--;
@@ -570,7 +570,7 @@ void dReports() {
 	while (cin.fail()) {//if input fails
 		cin.clear();//clears the error flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 		cin >> start;//asks for input again
 	}
 	start--;
@@ -579,7 +579,7 @@ void dReports() {
 	while (cin.fail()) {//if input fails
 		cin.clear();//clears the error flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 		cin >> end;//asks for input again
 	}
 	end--;
@@ -629,7 +629,7 @@ int main () {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> opt;//asks for input again
 		}
 		system("cls");//clears what's on screen
@@ -652,7 +652,7 @@ int main () {
 				while (cin.fail()) {//if input fails
 					cin.clear();//clears the error flag
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 					cin >> opt;//asks for input again
 				}
 				system("cls");//clears what's on screen
@@ -680,7 +680,7 @@ int main () {
 							while (cin.fail()) {//if input fails
 								cin.clear();//clears the error flag
 								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 								cin >> opt;//asks for input again
 							}
 							system("cls");//clears what's on screen
@@ -762,7 +762,7 @@ int main () {
 				while (cin.fail()) {//if input fails
 					cin.clear();//clears the error flag
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 					cin >> opt;//asks for input again
 				}
 				system("cls");//clears what's on screen
@@ -792,7 +792,7 @@ int main () {
 							while (cin.fail()) {//if input fails
 								cin.clear();//clears the error flag
 								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 								cin >> opt;//asks for input again
 							}
 							system("cls");//clears what's on screen
@@ -815,7 +815,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -862,7 +862,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -909,7 +909,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -955,7 +955,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
