@@ -195,6 +195,7 @@ void deleteUser(const string& email) {
 	vector<string> lines;
 	
 	heading();
+
 	
 	cout << "Please enter the line number you would like to delete:";
 	cin >> lineNumber;
@@ -291,6 +292,7 @@ void dTeachers() {
 	vector<string> lines;
 	
 	heading();
+
 	
 	cout << "Please enter the line number you would like to delete:";
 	cin >> lineNumber;
@@ -368,6 +370,7 @@ void dClasses() {
 	int lineNumber;
 	
 	heading();
+
 	
 	cout << "Please enter the number of the line you want to delete:";
 	cin >> lineNumber;
@@ -459,6 +462,7 @@ void dParents() {
 	int lineNumber;
 	
 	heading();
+
 	
 	cout << "Please enter the number of the line you want to delete:";
 	cin >> lineNumber;
@@ -567,7 +571,7 @@ void dReports() {
 	while (cin.fail()) {//if input fails
 		cin.clear();//clears the error flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 		cin >> start;//asks for input again
 	}
 	start--;
@@ -576,7 +580,7 @@ void dReports() {
 	while (cin.fail()) {//if input fails
 		cin.clear();//clears the error flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-		cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+		cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 		cin >> end;//asks for input again
 	}
 	end--;
@@ -626,7 +630,7 @@ int main () {
 		while (cin.fail()) {//if input fails
 			cin.clear();//clears the error flag
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-			cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+			cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 			cin >> opt;//asks for input again
 		}
 		system("cls");//clears what's on screen
@@ -649,7 +653,7 @@ int main () {
 				while (cin.fail()) {//if input fails
 					cin.clear();//clears the error flag
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 					cin >> opt;//asks for input again
 				}
 				system("cls");//clears what's on screen
@@ -677,7 +681,7 @@ int main () {
 							while (cin.fail()) {//if input fails
 								cin.clear();//clears the error flag
 								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 								cin >> opt;//asks for input again
 							}
 							system("cls");//clears what's on screen
@@ -759,7 +763,7 @@ int main () {
 				while (cin.fail()) {//if input fails
 					cin.clear();//clears the error flag
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-					cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+					cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 					cin >> opt;//asks for input again
 				}
 				system("cls");//clears what's on screen
@@ -789,7 +793,7 @@ int main () {
 							while (cin.fail()) {//if input fails
 								cin.clear();//clears the error flag
 								cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-								cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+								cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 								cin >> opt;//asks for input again
 							}
 							system("cls");//clears what's on screen
@@ -812,7 +816,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -859,7 +863,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -906,7 +910,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -952,7 +956,7 @@ int main () {
 									while (cin.fail()) {//if input fails
 										cin.clear();//clears the error flag
 										cin.ignore(numeric_limits<streamsize>::max(), '\n');//gets rid of invalid input
-										cout << "Invalid input. Please enter a integer. \n";//outputs messages to user
+										cout << "Invalid input. Please enter a number. \n";//outputs messages to user
 										cin >> opt;//asks for input again
 									}
 									system("cls");//clears what's on screen
@@ -1045,7 +1049,7 @@ int main () {
 			cout << "-----------------" << endl << endl;
 			cout << "Help" << endl;
 			cout << "----" << endl;
-			cout << "This is a School Infortmation console app. ";
+			cout << "This is a School Information console app. ";
 			cout << "Here you will find information about the school through a personal account." << endl << endl;
 			cout << "These include:" << endl;
 			cout << "- Basic accounts which can access 'Classes','Reports', 'Teachers' and 'Parents'" << endl;
